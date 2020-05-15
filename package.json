@@ -1,0 +1,27 @@
+{
+  "name": "sc",
+  "version": "1.0.0",
+  "description": "sistema de caixa para petiscarias,burguerias, pizzarias etc...",
+  "main": "server.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsaacDSC/Petiscaria.git"
+  },
+  "keywords": [
+    "sistema",
+    "de",
+    "caixa"
+  ],
+  "author": "IsaacDSC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IsaacDSC/Petiscaria/issues"
+  },
+  "homepage": "https://github.com/IsaacDSC/Petiscaria#readme"
+}
