@@ -3,11 +3,15 @@ const app = express()
 const bodyParser = require('body-parser')
 const handlebars = require('express-handlebars')
 const path = require('path')
+const session = require('express-session')
+const flash = require('connect-flash')
+const passport = require('passport')
 
 
 const home = require('./routes/home')
 const finance = require('./routes/finance')
-
+const montarPedido = require('./routes/montarPedido')
+const addProd = require('./routes/addProd')
 
 //configurando body-parser
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -17,9 +21,31 @@ app.engine('handlebars', handlebars({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
     //adionando pasta public
 app.use(express.static(path.join(__dirname, 'public')))
+    //configurando session
+app.use(session({
+        secret: 'secret',
+        resave: true,
+        saveUninitialized: true
+    }))
+    //configurando passport
+app.use(passport.initialize())
+app.use(passport.session())
+    //configurando flash
+app.use(flash())
+    //configurando midleware flash
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg')
+    res.locals.error_msg = req.flash('error_msg')
+    next()
+})
 
 app.use('/', home)
 app.use('/finance', finance)
+app.use('/montarpedido', montarPedido)
+app.use('/addProd', addProd)
+
+
+
 
 const Port = 3000
 app.listen(Port, () => {
