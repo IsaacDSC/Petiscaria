@@ -2,11 +2,14 @@ const express = require('express')
 const router = express.Router()
 
 //adionando models
-
+const Aperitivos = require('../models/Aperitivos')
 
 
 router.get('/', (req, res) => {
-    res.render('pedido/montarPedido')
+    Aperitivos.findAll().then((aperitivos) => {
+        res.render('pedido/montarPedido', { aperitivos: aperitivos })
+    })
+
 })
 
 router.post('/pedido', (req, res) => {
@@ -21,8 +24,14 @@ router.post('/pedido', (req, res) => {
         rendimento: req.body.rendimentoProd,
         rendimento1: req.body.rendimentoProd1
     }).then(() => {
-
+        req.flash('success_msg', 'Pedido enviado com sucesso!')
+        res.redirect('/montarpedido')
+    }).catch((err) => {
+        req.flash('Erro ao cadastrar, por favor preencha corretamente os campos!')
+        res.redirect('/montarpedido')
     })
 })
+
+
 
 module.exports = router

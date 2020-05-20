@@ -1,6 +1,6 @@
 const db = require('./db')
 
-const Aperitivos = db.sequelize.create('Aperitivos', {
+const Aperitivos = db.sequelize.define('Aperitivo', {
     codigo: {
         type: db.Sequelize.STRING(30)
     },
@@ -9,8 +9,17 @@ const Aperitivos = db.sequelize.create('Aperitivos', {
         require: true
     },
     descricao: {
-        type: db.Sequelize.TEXT(300),
+        type: db.Sequelize.TEXT,
         require: true
     },
+    valor: {
+        type: db.Sequelize.FLOAT,
+        require: true
+    }
 
 })
+
+//create table Aperitivos
+//Aperitivos.sync({ force: true })
+
+module.exports = Aperitivos

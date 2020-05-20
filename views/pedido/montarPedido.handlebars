@@ -6,6 +6,7 @@
     <!-- ============================================================== -->
     <!-- wrapper  -->
     <!-- ============================================================== -->
+
     <div class="dashboard-wrapper">
         <div class="container-fluid  dashboard-content">
             <!-- ============================================================== -->
@@ -32,6 +33,7 @@
             <!-- ============================================================== -->
             <!-- end pageheader -->
             <!-- ============================================================== -->
+            {{>_msg}}
             <div class="row">
                 <!-- ============================================================== -->
                 <!-- basic form -->
@@ -42,40 +44,36 @@
                         <div class="card-body">
                             <form action="#" id="basicform" data-parsley-validate="">
                                 <div class="form-group">
-                                    <label for="inputUserName">Nome Cliente</label>
-                                    <input id="inputUserName" type="text" name="name" data-parsley-trigger="change"
-                                        required="" placeholder="Enter user name" autocomplete="off"
+                                    <label for="nome">Nome Cliente</label>
+                                    <input id="nome" type="text" name="nome" data-parsley-trigger="change" required=""
+                                        placeholder="Enter user name" autocomplete="off" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="telefone">Telefone para contato</label>
+                                    <input id="telefone" name="telefone" type="number" placeholder="number" required=""
                                         class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputEmail">Email</label>
-                                    <input id="inputEmail" type="email" name="email" data-parsley-trigger="change"
-                                        required="" placeholder="Enter email" autocomplete="off" class="form-control">
+                                    <label for="bairro">Bairro</label>
+                                    <input id="bairro" name="bairro" data-parsley-equalto="#inputendereco" type="text"
+                                        required="" placeholder="Digite o nome do bairro" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputnumber">number</label>
-                                    <input id="inputnumber" type="number" placeholder="number" required=""
-                                        class="form-control">
+                                    <label for="rua">Nome da rua</label>
+                                    <input id="rua" name="rua" data-parsley-equalto="#inputendereco" type="text"
+                                        required="" placeholder="Digite o nome do bairro" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputRepeatPassword">Bairro</label>
-                                    <input id="inputRepeatPassword" data-parsley-equalto="#inputendereco"
-                                        type="text" required="" placeholder="Digite o nome do bairro" class="form-control">
-                                </div>
-                                 <div class="form-group">
-                                    <label for="inputRepeatPassword">Nome da rua</label>
-                                    <input id="inputRepeatPassword" data-parsley-equalto="#inputendereco"
-                                        type="text" required="" placeholder="Digite o nome do bairro" class="form-control">
+                                    <label for="numeroResisdencia">Numero da Residência</label>
+                                    <input id="numeroResisdencia" name="numeroResisdencia"
+                                        data-parsley-equalto="#inputendereco" type="text" required=""
+                                        placeholder="Digite o nome do bairro" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputRepeatPassword">Numero da Residência</label>
-                                    <input id="inputRepeatPassword" data-parsley-equalto="#inputendereco"
-                                        type="text" required="" placeholder="Digite o nome do bairro" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputRepeatPassword">Complemento - Ref</label>
-                                    <input id="inputRepeatPassword" data-parsley-equalto="#inputendereco"
-                                        type="text" required="" placeholder="Digite o nome do bairro" class="form-control">
+                                    <label for="complemento_ref">Complemento - Ref</label>
+                                    <input id="complemento_ref" name="complemento_ref"
+                                        data-parsley-equalto="#inputendereco" type="text" required=""
+                                        placeholder="Digite o nome do bairro" class="form-control">
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
@@ -101,61 +99,75 @@
                 <!-- ============================================================== -->
                 <!-- horizontal form -->
                 <!-- ============================================================== -->
+
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                     <div class="card">
                         <h5 class="card-header">Produto</h5>
                         <div class="card-body">
-                            <form id="form" data-parsley-validate="" novalidate="">  
+                            <form id="form" data-parsley-validate="" novalidate="">
                                 <div class="form-group">
-                                    <label for="inputRepeatPassword">01- Produto</label>
+                                    <label for="inputEmail2">Tanho Petisco</label>
                                     <select name="" id="" class="form-control">
-                                            <option value="">Selecione</option>
-                                            <option value="">Lanche 1 3R$</option>
-                                            <option value="">Lanche 2</option>
-                                            <option value="">Lanche 3</option>
-                                            <option value="">Lanche 4</option>
-                                        </select>
-                                </div>                                                             
+                                        <option value="">Selecione</option>
+                                        <option value="">Tamanho Pequeno Individual</option>
+                                        <option value="">Tamanho Médio (2 - 3)</option>
+                                        <option value="">Tamanho Grande (4 - 6)</option>
+                                        <option value="">Tamanho Combo 01 - Medio + Bebida</option>
+                                        <option value="">Tamanho Combo 02 - Grande + Bedida</option>
+                                    </select>
+                                </div>
                                 <div class="form-group">
-                                    <label for="inputEmail2">01- Quantidade</label>                                   
-                                        <input type="number" name="quantidade" class="form-control">                                    
+                                    <label for="inputRepeatPassword">01- Opção</label>
+
+                                    <select name="" id="" class="form-control">
+                                        <option value="">Selecione</option>
+                                        {{#each aperitivos}}
+                                        <option value="{{dataValues.valor}}">{{dataValues.nome}} = {{dataValues.valor}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                               
+                               <div class="form-group">
+                                    <label for="inputRepeatPassword">01- Opção</label>
+
+                                    <select name="" id="" class="form-control">
+                                        <option value="">Selecione</option>
+                                        {{#each aperitivos}}
+                                        <option value="{{dataValues.valor}}">{{dataValues.nome}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputRepeatPassword">01- Opção</label>
+
+                                    <select name="" id="" class="form-control">
+                                        <option value="">Selecione</option>
+                                        {{#each aperitivos}}
+                                        <option value="{{dataValues.valor}}">{{dataValues.nome}}</option>
+                                        {{/each}}
+                                    </select>
                                 </div>
                                 <hr>
                                 <div class="form-group">
-                                    <label for="inputEmail2">02- Produto</label>                                    
-                                        <select name="" id="" class="form-control">
-                                            <option value="">Selecione</option>
-                                            <option value="">Lanche 1</option>
-                                            <option value="">Lanche 2</option>
-                                            <option value="">Lanche 3</option>
-                                            <option value="">Lanche 4</option>
-                                        </select>                                    
+                                    <label for="inputEmail2">02- Bebidas</label>
+                                    <select name="" id="" class="form-control">
+                                        <option value="">Selecione</option>
+                                        <option value="">Lanche 1</option>
+                                        <option value="">Lanche 2</option>
+                                        <option value="">Lanche 3</option>
+                                        <option value="">Lanche 4</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputEmail2">02- Quantidade</label>                                   
-                                        <input type="number" name="quantidade" class="form-control">                                    
-                                </div>
-                                <hr>
-                                 <div class="form-group">
-                                    <label for="inputEmail2">03- Produto</label>
-                                    
-                                        <select name="" id="" class="form-control">
-                                            <option value="">Selecione</option>
-                                            <option value="">Lanche 1</option>
-                                            <option value="">Lanche 2</option>
-                                            <option value="">Lanche 3</option>
-                                            <option value="">Lanche 4</option>
-                                        </select>                                    
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputEmail2">03- Quantidade</label>                                   
-                                        <input type="number" name="quantidade" class="form-control">                                    
+                                    <label for="inputEmail2">02- Quantidade Bebidas</label>
+                                    <input type="number" name="quantidade" class="form-control">
                                 </div>
                                 <hr>
                                 <div class="form-group">
-                                    <label for="inputPassword2">Observação dos Produtos</label>                                
-                                        <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Digite alguma Observação"></textarea>                                
-                                </div>            
+                                    <label for="inputPassword2">Observação dos Produtos</label>
+                                    <textarea name="" id="" cols="30" rows="10" class="form-control"
+                                        placeholder="Digite alguma Observação"></textarea>
+                                </div>
                                 <div class="row pt-2 pt-sm-5 mt-1">
                                     <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
                                         <label class="be-checkbox custom-control custom-checkbox">
@@ -174,6 +186,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- ============================================================== -->
                 <!-- end horizontal form -->
                 <!-- ============================================================== -->

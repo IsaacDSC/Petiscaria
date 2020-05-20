@@ -1,0 +1,74 @@
+<div class="dashboard-main-wrapper">
+    <!-- Adionando nav partials -->
+    {{>_navDashboard}}
+    <!-- Fim nav partials -->
+    {{>_sidebarDashboard}}
+
+    <div class="dashboard-wrapper">
+        <div class="container-fluid  dashboard-content">
+            <!-- ============================================================== -->
+            <!-- pageheader -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="page-header">
+                        <h2 class="pageheader-title">Aperitivos cadastrados</h2>
+                        <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit
+                            amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                        <div class="page-breadcrumb">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Forms</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Form Validations</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end pageheader -->
+            <!-- ============================================================== -->
+
+            <div class="row">
+                <!-- ============================================================== -->
+                <!-- basic table -->
+                <!-- ============================================================== -->
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="card">
+                        <h5 class="card-header">Aperitivos Cadastrados</h5>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">nome</th>
+                                        <th scope="col">validade</th>
+                                        <th scope="col">quantidade</th>
+                                        <th scope="col">valor</th>
+                                        <th scope="col">Editar - Deletar</th>  
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each produtos}}
+                                    <tr>
+                                        <th scope="row">{{dataValues.id}}</th>
+                                        <td>{{dataValues.nome}}</td>
+                                        <td>{{dataValues.validade}}</td>
+                                        <td>{{dataValues.quantidade}}</td>
+                                        <td>{{dataValues.valor}}</td>
+                                        <td>
+                                            <a href=""><Button class="btn btn-primary">Editar</Button></a>
+                                            <a href=""><Button class="btn btn-danger">Deletar</Button></a>
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end basic table -->
+                <!-- ============================================================== -->

@@ -11,7 +11,7 @@ const passport = require('passport')
 const home = require('./routes/home')
 const finance = require('./routes/finance')
 const montarPedido = require('./routes/montarPedido')
-const addProd = require('./routes/addProd')
+const add = require('./routes/add')
 
 //configurando body-parser
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -42,7 +42,7 @@ app.use((req, res, next) => {
 app.use('/', home)
 app.use('/finance', finance)
 app.use('/montarpedido', montarPedido)
-app.use('/addProd', addProd)
+app.use('/add', add)
 
 
 
