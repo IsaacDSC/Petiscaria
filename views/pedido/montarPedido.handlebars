@@ -42,16 +42,20 @@
                     <div class="card">
                         <h5 class="card-header">Cadastro Cliente</h5>
                         <div class="card-body">
-                            <form action="#" id="basicform" data-parsley-validate="">
+                            <!-- ============================================================== -->
+                            <!-- inicio form -->
+                            <!-- ============================================================== -->
+                            <form action="/pedido/env-pedidos" method="POST" id="basicform" data-parsley-validate="">
+
                                 <div class="form-group">
                                     <label for="nome">Nome Cliente</label>
                                     <input id="nome" type="text" name="nome" data-parsley-trigger="change" required=""
-                                        placeholder="Enter user name" autocomplete="off" class="form-control">
+                                        placeholder="Digite o nome do cliente" autocomplete="off" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="telefone">Telefone para contato</label>
-                                    <input id="telefone" name="telefone" type="number" placeholder="number" required=""
-                                        class="form-control">
+                                    <input id="telefone" name="telefone" type="number"
+                                        placeholder="Digite o numero de telefone" required="" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="bairro">Bairro</label>
@@ -61,38 +65,24 @@
                                 <div class="form-group">
                                     <label for="rua">Nome da rua</label>
                                     <input id="rua" name="rua" data-parsley-equalto="#inputendereco" type="text"
-                                        required="" placeholder="Digite o nome do bairro" class="form-control">
+                                        required="" placeholder="Digite o nome da rua" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="numeroResisdencia">Numero da Residência</label>
-                                    <input id="numeroResisdencia" name="numeroResisdencia"
+                                    <label for="residencia">Numero da Residência</label>
+                                    <input id="residencia" name="residencia"
                                         data-parsley-equalto="#inputendereco" type="text" required=""
-                                        placeholder="Digite o nome do bairro" class="form-control">
+                                        placeholder="Digite o numero da residência" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="complemento_ref">Complemento - Ref</label>
-                                    <input id="complemento_ref" name="complemento_ref"
-                                        data-parsley-equalto="#inputendereco" type="text" required=""
-                                        placeholder="Digite o nome do bairro" class="form-control">
+                                    <textarea name="complemento_ref" id="complemento_ref" cols="30" rows="10"
+                                        class="form-control"
+                                        placeholder="Digite o complemento ou referência"></textarea>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
-                                        <label class="be-checkbox custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input"><span
-                                                class="custom-control-label">Remember me</span>
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-6 pl-0">
-                                        <p class="text-right">
-                                            <button type="submit" class="btn btn-space btn-primary">Submit</button>
-                                            <button class="btn btn-space btn-secondary">Cancel</button>
-                                        </p>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
+
                 <!-- ============================================================== -->
                 <!-- end basic form -->
                 <!-- ============================================================== -->
@@ -104,85 +94,89 @@
                     <div class="card">
                         <h5 class="card-header">Produto</h5>
                         <div class="card-body">
-                            <form id="form" data-parsley-validate="" novalidate="">
-                                <div class="form-group">
-                                    <label for="inputEmail2">Tanho Petisco</label>
-                                    <select name="" id="" class="form-control">
-                                        <option value="">Selecione</option>
-                                        <option value="">Tamanho Pequeno Individual</option>
-                                        <option value="">Tamanho Médio (2 - 3)</option>
-                                        <option value="">Tamanho Grande (4 - 6)</option>
-                                        <option value="">Tamanho Combo 01 - Medio + Bebida</option>
-                                        <option value="">Tamanho Combo 02 - Grande + Bedida</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputRepeatPassword">01- Opção</label>
+                            <div class="form-group">
+                                <label for="tamanhoPetisco">Tanho Petisco</label>
+                                <select name="tamanhoPetisco" id="tamanhoPetisco" class="form-control">
+                                    <option value="null">Selecione</option>
+                                    <option value="Tamanho Pequeno Individual">Tamanho Pequeno Individual</option>
+                                    <option value="Tamanho Médio (2 - 3)">Tamanho Médio (2 - 3)</option>
+                                    <option value="Tamanho Grande (4 - 6)">Tamanho Grande (4 - 6)</option>
+                                    <option value="Tamanho Combo 01 - Medio + Bebida">Tamanho Combo 01 - Medio + Bebida</option>
+                                    <option value="Tamanho Combo 02 - Grande + Bedida">Tamanho Combo 02 - Grande + Bedida</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="opc01">01- Opção</label>
 
-                                    <select name="" id="" class="form-control">
-                                        <option value="">Selecione</option>
-                                        {{#each aperitivos}}
-                                        <option value="{{dataValues.valor}}">{{dataValues.nome}} = {{dataValues.valor}}</option>
-                                        {{/each}}
-                                    </select>
-                                </div>
-                               
-                               <div class="form-group">
-                                    <label for="inputRepeatPassword">01- Opção</label>
+                                <select name="opc01" id="opc01" class="form-control">
+                                    <option value="null">Selecione</option>
+                                    {{#each aperitivos}}
+                                    <option value="{{dataValues.valor}}">{{dataValues.nome}} = {{dataValues.valor}}
+                                    </option>
+                                    {{/each}}
+                                </select>
+                            </div>
 
-                                    <select name="" id="" class="form-control">
-                                        <option value="">Selecione</option>
-                                        {{#each aperitivos}}
-                                        <option value="{{dataValues.valor}}">{{dataValues.nome}}</option>
-                                        {{/each}}
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputRepeatPassword">01- Opção</label>
+                            <div class="form-group">
+                                <label for="opc02">02- Opção</label>
 
-                                    <select name="" id="" class="form-control">
-                                        <option value="">Selecione</option>
-                                        {{#each aperitivos}}
-                                        <option value="{{dataValues.valor}}">{{dataValues.nome}}</option>
-                                        {{/each}}
-                                    </select>
+                                <select name="opc02" id="opc02" class="form-control">
+                                    <option value="null">Selecione</option>
+                                    {{#each aperitivos}}
+                                    <option value="{{dataValues.valor}}">{{dataValues.nome}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="opc03">03- Opção</label>
+
+                                <select name="opc03" id="opc03" class="form-control">
+                                    <option value="null">Selecione</option>
+                                    {{#each aperitivos}}
+                                    <option value="{{dataValues.valor}}">{{dataValues.nome}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                                <label for="bebidas">Bebidas</label>
+                                <select name="bebidas" id="bebidas" class="form-control">
+                                    <option value="null">Selecione</option>
+                                    <option value="Bebida 1">Bebida 1</option>
+                                    <option value="Bebida 2">Bebida 2</option>
+                                    <option value="Bebida 3">Bebida 3</option>
+                                    <option value="Bebida 4">Bebida 4</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="qtdBebidas">Quantidade Bebidas</label>
+                                <input type="number" name="qtdBebidas" class="form-control">
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                                <label for="observacao">Observação dos Produtos</label>
+                                <textarea name="observacao" id="observacao" cols="30" rows="10" class="form-control"
+                                    placeholder="Digite alguma Observação"></textarea>
+                            </div>
+                            <div class="row pt-2 pt-sm-5 mt-1">
+                                <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
+                                    <label class="be-checkbox custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input"><span
+                                            class="custom-control-label">Remember me</span>
+                                    </label>
                                 </div>
-                                <hr>
-                                <div class="form-group">
-                                    <label for="inputEmail2">02- Bebidas</label>
-                                    <select name="" id="" class="form-control">
-                                        <option value="">Selecione</option>
-                                        <option value="">Lanche 1</option>
-                                        <option value="">Lanche 2</option>
-                                        <option value="">Lanche 3</option>
-                                        <option value="">Lanche 4</option>
-                                    </select>
+                                <div class="col-sm-6 pl-0">
+                                    <p class="text-right">
+                                        <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                                        <button class="btn btn-space btn-secondary">Cancel</button>
+                                    </p>
                                 </div>
-                                <div class="form-group">
-                                    <label for="inputEmail2">02- Quantidade Bebidas</label>
-                                    <input type="number" name="quantidade" class="form-control">
-                                </div>
-                                <hr>
-                                <div class="form-group">
-                                    <label for="inputPassword2">Observação dos Produtos</label>
-                                    <textarea name="" id="" cols="30" rows="10" class="form-control"
-                                        placeholder="Digite alguma Observação"></textarea>
-                                </div>
-                                <div class="row pt-2 pt-sm-5 mt-1">
-                                    <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
-                                        <label class="be-checkbox custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input"><span
-                                                class="custom-control-label">Remember me</span>
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-6 pl-0">
-                                        <p class="text-right">
-                                            <button type="submit" class="btn btn-space btn-primary">Submit</button>
-                                            <button class="btn btn-space btn-secondary">Cancel</button>
-                                        </p>
-                                    </div>
-                                </div>
+                            </div>
+
                             </form>
+                            <!-- ============================================================== -->
+                            <!-- fim form -->
+                            <!-- ============================================================== -->
                         </div>
                     </div>
                 </div>

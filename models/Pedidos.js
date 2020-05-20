@@ -17,31 +17,43 @@ const Pedidos = db.sequelize.define('pedido', {
         type: db.Sequelize.STRING(220),
         require: true,
     },
-    numeroResidencia: {
+    residencia: {
         type: db.Sequelize.INTEGER,
         require: true
     },
     complemento_ref: {
         type: db.Sequelize.TEXT
     },
-    produto01: {
+    tamanhoPetisco: {
         type: db.Sequelize.STRING,
         require: true
     },
-    produto01_valor: {
-        type: db.Sequelize.FLOAT,
-        require: true
-    },
-    produto02: {
+    opc01: {
         type: db.Sequelize.STRING,
         require: true
     },
-    produto02_valor: {
-        type: db.Sequelize.FLOAT,
+    opc02: {
+        type: db.Sequelize.STRING,
+        require: true
+    },
+    opc03: {
+        type: db.Sequelize.STRING,
+        require: true
+    },
+    bebidas: {
+        type: db.Sequelize.STRING,
+        require: true
+    },
+    qtdBebidas: {
+        type: db.Sequelize.INTEGER,
         require: true
     },
     observacao: {
         type: db.Sequelize.TEXT
+    },
+    valor: {
+        type: db.Sequelize.FLOAT,
+        require: true
     }
 })
 

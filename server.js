@@ -10,7 +10,7 @@ const passport = require('passport')
 
 const home = require('./routes/home')
 const finance = require('./routes/finance')
-const montarPedido = require('./routes/montarPedido')
+const pedido = require('./routes/pedido')
 const add = require('./routes/add')
 
 //configurando body-parser
@@ -41,7 +41,7 @@ app.use((req, res, next) => {
 
 app.use('/', home)
 app.use('/finance', finance)
-app.use('/montarpedido', montarPedido)
+app.use('/pedido', pedido)
 app.use('/add', add)
 
 
