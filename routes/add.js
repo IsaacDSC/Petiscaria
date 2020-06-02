@@ -3,17 +3,12 @@ const router = express.Router()
 
 //adionando models
 const EstoqueProduto = require('../models/EstoqueProduto')
-const Aperitivos = require('../models/Aperitivos')
 const Pedidos = require('../models/Pedidos')
 const Bebidas = require('../models/Bebidas')
 const OpcaoAperitvo = require('../models/OpcaoAPeritivo')
 
 router.get('/produto', (req, res) => {
     res.render('add/addProd')
-})
-
-router.get('/aperitivo', (req, res) => {
-    res.render('add/addAperitivo')
 })
 
 router.get('/bebidas', (req, res) => {
@@ -51,72 +46,6 @@ router.get('/views-produtos', (req, res) => {
 router.get('/edit-produtos', (req, res) => {
     EstoqueProduto.findOne({ id: req.body.id }).then((produto) => {
         res.render('edit-prod/editProd')
-    })
-})
-
-//adionando aperitivo
-router.post('/aperitivo', (req, res) => {
-    Aperitivos.create({
-        nome: req.body.nomeAperitivo,
-        descricao: req.body.descAperitivo,
-        valor: req.body.valorAperitivo,
-        valorGasto: req.body.gastoAperitivo
-    }).then(() => {
-        //res.send('Enviado com sucesso!')
-        req.flash('success_msg', 'Aperitivo Adionado com sucesso!')
-        res.redirect('/add/aperitivo')
-    }).catch((err) => {
-        //res.send('error: ' + err)
-        req.flash('error_msg', 'Erro ao Enviar formulário, por favor complete os campos corretamente')
-        res.redirect('/add/addProd')
-    })
-})
-
-//adionando opc de aperitivo
-router.post('/opcAperitivo', (req, res) => {
-    OpcaoAperitvo.create({
-        nome: req.body.nome,
-        valor: req.body.valor,
-        valorGasto: req.body.gasto
-    }).then(() => {
-        req.flash('success_msg', 'Opção Aperitivo Cadastrado com Sucesso!')
-        res.redirect('/add/aperitivo')
-    }).catch((err) => {
-        //res.send('error: ' + err)
-        req.flash('error_msg', 'Erro ao Enviar formulário, por favor complete os campos corretamente')
-        res.redirect('/add/addProd')
-    })
-})
-
-
-router.get('/views-aperitivos', (req, res) => {
-    Aperitivos.findAll().then((aperitivos) => {
-        res.render('vis-prod/vis-aperitivo', { aperitivos: aperitivos })
-    }).catch((err) => {
-        res.send('error' + err)
-    })
-})
-
-router.get('/edit-aperitivo', (req, res) => {
-    Aperitivos.findAll().then((aperitivos) => {
-        res.render('edit-prod/editAperitivo', { aperitivos: aperitivos })
-    })
-})
-
-
-router.post('/editAperitivo', (req, res) => {
-    Aperitivos.findOne({ id: req.body.id }).then((aperitivos) => {
-        aperitivos.nome = req.body.nomeAperitivo,
-            aperitivos.descricao = req.body.descAperitivo,
-            aperitivos.valor = req.body.valorAperitivo,
-            aperitivos.valorGasto = req.body.valorGasto,
-
-            aperitivos.save().then(() => {
-                req.flash('success_msg', 'Aperitivo Editado com sucesso!')
-                res.redirect('/add/edit-aperitivo')
-            }).catch((err) => {
-                res.send('Error:' + err)
-            })
     })
 })
 
