@@ -37,41 +37,13 @@
             <!-- horizontal form -->
             <!-- ============================================================== -->
 
-            <div class="row">
-
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                    <div class="card">
-                        <h5 class="card-header">Cadastro do Produto Estoque</h5>
-                        <div class="card-body">
-                            <form action="#" id="basicform" data-parsley-validate="">
-                                <div class="form-group">
-                                    <label for="nameProd">Nome Produto</label>
-                                    <select name="id" id="id" class="form-control">
-                                        {{#each aperitivos}}
-                                        <option value="{{dataValues.id}}">{{dataValues.id}} -
-                                            código:{{dataValues.codigo}} = nome:{{dataValues.nome}}</option>
-                                        {{/each}}
-                                    </select>
-                                </div>
-                                <button class="btn btn-success">Procurar</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                 {{#each aperitivos}}
-                <form action="/addProd/editAperitivo" method="post">
+                <form action="/add/editAperitivo" method="post">
                     <div class="card">
-                        <input type="text" value="{{dataValues.id}}">
+                        <input type="hidden" value="{{dataValues.id}}">
                         <h5 class="card-header">Cadastro do Produto Aperitivo</h5>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="codAperitivo">Código do Aperitivo</label>
-                                <input type="text" name="codAperitivo" id="codAperitivo" class="form-control"
-                                    placeholder="Digite o código do Aperitivo" value="{{dataValues.codigo}}">
-                            </div>
+                        <div class="card-body">                            
                             <div class="form-group">
                                 <label for="nomeAperitivo">Nome do Aperitivo</label>
                                 <input type="text" name="nomeAperitivo" id="nomeAperitivo" class="form-control"
@@ -87,6 +59,11 @@
                                 <label for="valorAperitivo">Valor</label>
                                 <input type="text" name="valorAperitivo" id="valorAperitivo" class="form-control"
                                     placeholder="Digite o valor do Aperitivo" value="{{dataValues.valor}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="valorGasto">Valor</label>
+                                <input type="text" name="valorGasto" id="valorGasto" class="form-control"
+                                    placeholder="Digite o valor do Aperitivo" value="{{dataValues.valorGasto}}">
                             </div>
                             <hr>
                             <div class="row pt-2 pt-sm-5 mt-1">

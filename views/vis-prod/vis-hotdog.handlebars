@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="page-header">
-                        <h2 class="pageheader-title">Aperitivos cadastrados</h2>
+                        <h2 class="pageheader-title">Hot-Dog cadastrados</h2>
                         <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit
                             amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                         <div class="page-breadcrumb">
@@ -36,40 +36,47 @@
                 <!-- ============================================================== -->
                 <!-- basic table -->
                 <!-- ============================================================== -->
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="col-xl-12 col-lg-2 col-md-2 col-sm-6 col-60">
                     <div class="card">
-                        <h5 class="card-header">Aperitivos Cadastrados</h5>
+                        <h5 class="card-header">Hot-Dog Cadastrados</h5>
+                        <div class=" card-header">
+                        <a href="/hotdog/add"><button class="btn btn-outline-success">Cadastrar Hot-Dog</button></a>
+                        <a href="/hotdog/edit"><button class="btn btn-outline-info">Editar Hot-Dog</button></a>
+                        </div>
+                             
                         <div class="card-body">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Id</th>
-                                        <th scope="col">código</th>
+                                        <th scope="col-2">Id</th>
                                         <th scope="col">nome</th>
-                                        <th scope="col">valor</th>
-                                        <th scope="col">descrição</th>
-                                        <th scope="col">
-                                            <a href="/add/edit-aperitivo">
-                                                <button class="btn btn-info">Editar</button>
-                                            </a>
-                                        </th>
+                                        <th scope="col">Valor Gasto</th>
+                                        <th scope="col">valor Venda</th>
+                                        <th scope="col">Lucro</th>
+                                        <th scope="col">descrição</th>                                        
                                         <th>
-
+                                            <a href=""> Apagar</a>
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <form action="" method="post">
-                                        {{#each aperitivos}}
+                                    {{#each hotdog}}
+                                    <form action="/hotdog/delete" method="post">
                                         <tr>
+                                            <input type="hidden" value="{{dataValues.id}}" name="id">
                                             <th scope="row">{{dataValues.id}}</th>
-                                            <td>{{dataValues.codigo}}</td>
                                             <td>{{dataValues.nome}}</td>
-                                            <td>{{dataValues.valor}}</td>
-                                            <td>{{dataValues.descricao}}</td>                                            
-                                        </tr>
-                                        {{/each}}
+                                            <td>{{dataValues.valorGasto}}</td>
+                                            <td>{{dataValues.valorVendido}}</td>
+                                            <td>{{dataValues.lucro}}</td>
+                                            <td>{{dataValues.desc}}</td>                                            
+                                            <td>
+                                                <Button class="btn btn-outline-danger">Deletar</Button>
+                                            </td>
                                     </form>
+                                        </tr>
+
+                                    {{/each}}
                                 </tbody>
                             </table>
                         </div>

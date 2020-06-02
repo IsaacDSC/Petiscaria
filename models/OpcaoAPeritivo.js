@@ -1,26 +1,21 @@
 const db = require('./db')
 
-const Aperitivos = db.sequelize.define('Aperitivo', {
+const OpcaoAperitivo = db.sequelize.define('opcAperitivo', {
     nome: {
         type: db.Sequelize.STRING(60),
-        require: true
-    },
-    descricao: {
-        type: db.Sequelize.TEXT,
         require: true
     },
     valor: {
         type: db.Sequelize.FLOAT,
         require: true
     },
-    valorGasto: {
+    gasto: {
         type: db.Sequelize.FLOAT,
         require: true
     }
-
 })
 
-//create table Aperitivos
-//Aperitivos.sync({ force: true })
+//create table models
+//OpcaoAperitivo.sync({ force: true })
 
-module.exports = Aperitivos
+module.exports = OpcaoAperitivo

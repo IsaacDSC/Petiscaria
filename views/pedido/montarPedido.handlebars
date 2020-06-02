@@ -79,6 +79,12 @@
                                         class="form-control"
                                         placeholder="Digite o complemento ou referência"></textarea>
                                 </div>
+                                <div class="form-group">
+                                    <label for="valorEntrega">Valor Entrega</label>
+                                    <input id="valorEntrega" name="valorEntrega"
+                                        data-parsley-equalto="#inputendereco" type="text" required=""
+                                        placeholder="Digite o valor da entrega" class="form-control">
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -98,11 +104,15 @@
                                 <label for="tamanhoPetisco">Tanho Petisco</label>
                                 <select name="tamanhoPetisco" id="tamanhoPetisco" class="form-control">
                                     <option value="null">Selecione</option>
-                                    <option value="Tamanho Pequeno Individual">Tamanho Pequeno Individual</option>
-                                    <option value="Tamanho Médio (2 - 3)">Tamanho Médio (2 - 3)</option>
-                                    <option value="Tamanho Grande (4 - 6)">Tamanho Grande (4 - 6)</option>
-                                    <option value="Tamanho Combo 01 - Medio + Bebida">Tamanho Combo 01 - Medio + Bebida</option>
-                                    <option value="Tamanho Combo 02 - Grande + Bedida">Tamanho Combo 02 - Grande + Bedida</option>
+                                    <option value="Combo Individual">Combo Individual</option>
+                                    <option value="Combo Casal">Combo Casal(2 - 3)</option>
+                                    <option value="Combo Casal + Mantiqueira">Combo Casal(2 - 3) + Mantiqueira</option>
+                                    <option value="Combo Medio">Combo Medio (3 - 5)</option>
+                                    <option value="Combo Medio + Mantiqueira">Combo Medio (3 - 5) + Mantiqueira</option>
+                                    <option value="Combo Medio + Cerveja">Combo Medio (3 - 5) + Cerveja</option>
+                                    <option value="Combo Grande">Combo Grande (4 - 6)</option>
+                                    <option value="Combo Grande + Mantiqueira">Combo Grande (4 - 6) + Mantiqueira</option>
+                                    <option value="Combo Grande + Cerveja">Combo Grande (4 - 6) + Cerveja</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -119,7 +129,6 @@
 
                             <div class="form-group">
                                 <label for="opc02">02- Opção</label>
-
                                 <select name="opc02" id="opc02" class="form-control">
                                     <option value="null">Selecione</option>
                                     {{#each aperitivos}}
@@ -128,7 +137,12 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="opc03">03- Opção</label>
+                                <label for="observacao">Observação dos Produtos</label>
+                                <textarea name="observacao" id="observacao" cols="30" rows="10" class="form-control"
+                                    placeholder="Digite alguma Observação"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="opc03">Hot-Dog</label>
 
                                 <select name="opc03" id="opc03" class="form-control">
                                     <option value="null">Selecione</option>
@@ -137,27 +151,26 @@
                                     {{/each}}
                                 </select>
                             </div>
+                             <div class="form-group">
+                                <label for="observacao">Observação dos Produtos</label>
+                                <input type="text" name="observacao" id="observacao" class="form-control"
+                                    placeholder="Digite alguma Observação">
+                            </div>
                             <hr>
                             <div class="form-group">
                                 <label for="bebidas">Bebidas</label>
                                 <select name="bebidas" id="bebidas" class="form-control">
                                     <option value="null">Selecione</option>
-                                    <option value="Bebida 1">Bebida 1</option>
-                                    <option value="Bebida 2">Bebida 2</option>
-                                    <option value="Bebida 3">Bebida 3</option>
-                                    <option value="Bebida 4">Bebida 4</option>
+                                    {{#each bebidas}}
+                                    <option value="{{dataValues.valorVenda}}">{{dataValues.nome}} {{dataValues.quantidade}}  {{dataValues.desc}} {{dataValues.valorVenda}}R$</option>
+                                    {{/each}}
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="qtdBebidas">Quantidade Bebidas</label>
                                 <input type="number" name="qtdBebidas" class="form-control">
                             </div>
-                            <hr>
-                            <div class="form-group">
-                                <label for="observacao">Observação dos Produtos</label>
-                                <textarea name="observacao" id="observacao" cols="30" rows="10" class="form-control"
-                                    placeholder="Digite alguma Observação"></textarea>
-                            </div>
+                            <hr>                            
                             <div class="row pt-2 pt-sm-5 mt-1">
                                 <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
                                     <label class="be-checkbox custom-control custom-checkbox">

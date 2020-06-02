@@ -12,6 +12,7 @@ const home = require('./routes/home')
 const finance = require('./routes/finance')
 const pedido = require('./routes/pedido')
 const add = require('./routes/add')
+const hotDog = require('./routes/hotdog')
 
 //configurando body-parser
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -43,6 +44,7 @@ app.use('/', home)
 app.use('/finance', finance)
 app.use('/pedido', pedido)
 app.use('/add', add)
+app.use('/hotdog', hotDog)
 
 
 

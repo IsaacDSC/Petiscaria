@@ -38,16 +38,11 @@
                     <!-- horizontal form -->
                     <!-- ============================================================== -->
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <form action="/addProd/addAperitivo" method="post">
+                        <form action="/add/aperitivo" method="post">
                             <div class="card">
                                 <h5 class="card-header">Cadastro do Produto Aperitivo</h5>
                                 <div class="card-body">
-                                    <form id="form" data-parsley-validate="" novalidate="">
-                                        <div class="form-group">
-                                            <label for="codAperitivo">Código do Aperitivo</label>
-                                            <input type="text" name="codAperitivo" id="codAperitivo"
-                                                class="form-control" placeholder="Digite o código do Aperitivo">
-                                        </div>
+                                    <form id="form" data-parsley-validate="" novalidate="">                                       
                                         <div class="form-group">
                                             <label for="nomeAperitivo">Nome do Aperitivo</label>
                                             <input type="text" name="nomeAperitivo" id="nomeAperitivo"
@@ -63,7 +58,12 @@
                                             <label for="valorAperitivo">Valor Aperitivo</label>
                                             <input type="text" name="valorAperitivo" id="valorAperitivo"
                                                 class="form-control" placeholder="Digite o valor do Aperitivo">
-                                        </div>                                      
+                                        </div>   
+                                         <div class="form-group">
+                                            <label for="gastoAperitivo">Valor Gasto Aperitivo</label>
+                                            <input type="text" name="gastoAperitivo" id="gastoAperitivo"
+                                                class="form-control" placeholder="Digite o valor gasto do Aperitivo">
+                                        </div>                                   
                                         <hr>
                                         <div class="row pt-2 pt-sm-5 mt-1">
                                             <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
@@ -87,4 +87,45 @@
                     <!-- ============================================================== -->
                     <!-- end horizontal form -->
                     <!-- ============================================================== -->
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <form action="/add/opcAperitivo" method="post">
+                            <div class="card">
+                                <h5 class="card-header">Opções Aperitivos</h5>
+                                <div class="card-body">
+                                    <form id="form" data-parsley-validate="" novalidate="">                                       
+                                        <div class="form-group">
+                                            <label for="nome">Nome da opção Aperitivo</label>
+                                            <input type="text" name="nome" id="nome"
+                                                class="form-control" placeholder="Digite o nome da opção do Aperitivo">
+                                        </div>                                         
+                                        <div class="form-group">
+                                            <label for="valor">Valor da Opção Aperitivo</label>
+                                            <input type="text" name="valor" id="valor"
+                                                class="form-control" placeholder="Digite o valor da opção do Aperitivo">
+                                        </div>   
+                                         <div class="form-group">
+                                            <label for="gasto">Valor da Opção Gasto Aperitivo</label>
+                                            <input type="text" name="gasto" id="gasto"
+                                                class="form-control" placeholder="Digite o valor gasto da opção do Aperitivo">
+                                        </div>                                   
+                                        <hr>
+                                        <div class="row pt-2 pt-sm-5 mt-1">
+                                            <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
+                                                <label class="be-checkbox custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input"><span
+                                                        class="custom-control-label">Remember me</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-6 pl-0">
+                                                <p class="text-right">
+                                                    <button type="submit"
+                                                        class="btn btn-space btn-primary">Submit</button>
+                                                    <button class="btn btn-space btn-secondary">Cancel</button>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                    </div>
                 </div>

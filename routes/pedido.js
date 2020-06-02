@@ -4,11 +4,15 @@ const router = express.Router()
 //adionando models
 const Aperitivos = require('../models/Aperitivos')
 const Pedidos = require('../models/Pedidos')
+const Bebidas = require('../models/Bebidas')
 
 
 router.get('/', (req, res) => {
     Aperitivos.findAll().then((aperitivos) => {
-        res.render('pedido/montarPedido', { aperitivos: aperitivos })
+        Bebidas.findAll().then((bebidas) => {
+
+            res.render('pedido/montarPedido', { aperitivos: aperitivos, bebidas: bebidas })
+        })
     })
 
 })

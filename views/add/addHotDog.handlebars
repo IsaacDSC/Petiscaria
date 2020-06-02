@@ -1,0 +1,92 @@
+<div class="dashboard-main-wrapper">
+    <!-- Adionando nav partials -->
+    {{>_navDashboard}}
+    <!-- Fim nav partials -->
+    {{>_sidebarDashboard}}
+    <!-- ============================================================== -->
+    <!-- wrapper  -->
+    <!-- ============================================================== -->
+    <div class="dashboard-wrapper">
+        <div class="container-fluid  dashboard-content">
+            <!-- ============================================================== -->
+            <!-- pageheader -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="page-header">
+                        <h2 class="pageheader-title">Formulário para Cadastrar Hot-Dog</h2>
+                        <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit
+                            amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                        <div class="page-breadcrumb">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Forms</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Form Validations</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end pageheader -->
+            <!-- ============================================================== -->
+            {{>_msg}}
+
+            <!-- ============================================================== -->
+            <!-- horizontal form -->
+            <!-- ============================================================== -->
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Cadastro do Hot-Dog</h5>
+                        <a href="/hotdog/views">
+                            <button class="btn btn-outline-success">Visualizar</button>
+                        </a>
+                        <a href="/hotdog/edit">
+                            <button class="btn btn-outline-info">Editar Hot-Dog</button>
+                        </a>
+                    </div>
+                    <form action="/hotdog/add" method="post">
+                        <div class="card-body">
+                            <form id="form" data-parsley-validate="" novalidate="">
+                                <div class="form-group">
+                                    <label for="nome">Nome</label>
+                                    <input type="text" name="nome" id="nome" class="form-control"
+                                        placeholder="Digite o nome do hot-dog">
+                                </div>
+                                <div class="form-group">
+                                    <label for="desc">Descrição</label>
+                                    <textarea name="desc" id="desc" cols="30" rows="10" class="form-control"
+                                        placeholder="Digite a descrição deste hot-dog"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="valorVendido">Valor de Venda</label>
+                                    <input type="text" name="valorVendido" id="valorVendido" class="form-control"
+                                        placeholder="Digite o valor de venda do hot-dog">
+                                </div>
+                                <div class="form-group">
+                                    <label for="valorGasto">Valor Gasto</label>
+                                    <input type="text" name="valorGasto" id="valorGasto" class="form-control"
+                                        placeholder="Digite o valor de gasto do hot-dog">
+                                </div>
+                                <hr>
+                                <div class="row pt-2 pt-sm-5 mt-1">
+                                    <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
+                                        <label class="be-checkbox custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input"><span
+                                                class="custom-control-label">Remember me</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-6 pl-0">
+                                        <p class="text-right">
+                                            <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                                            <button class="btn btn-space btn-secondary">Cancel</button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                </div>
+            </div>
