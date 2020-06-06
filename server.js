@@ -14,6 +14,7 @@ const pedido = require('./routes/pedido')
 const add = require('./routes/add')
 const hotDog = require('./routes/hotdog')
 const aperitivos = require('./routes/aperitivo')
+const clientes = require('./routes/cliente')
 
 //configurando body-parser
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -47,6 +48,7 @@ app.use('/pedido', pedido)
 app.use('/add', add)
 app.use('/hotdog', hotDog)
 app.use('/aperitivos', aperitivos)
+app.use('/cliente', clientes)
 
 
 

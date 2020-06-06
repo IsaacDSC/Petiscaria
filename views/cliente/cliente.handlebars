@@ -1,0 +1,92 @@
+<div class="dashboard-main-wrapper">
+    <!-- Adionando nav partials -->
+    {{>_navDashboard}}
+    <!-- Fim nav partials -->
+    {{>_sidebarDashboard}}
+    <!-- ============================================================== -->
+    <!-- wrapper  -->
+    <!-- ============================================================== -->
+
+    <div class="dashboard-wrapper">
+        <div class="container-fluid  dashboard-content">
+            <!-- ============================================================== -->
+            <!-- pageheader -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="page-header">
+                        <h2 class="pageheader-title">Formulário para fazer pedido para o cliente</h2>
+                        <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit
+                            amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                        <div class="page-breadcrumb">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Forms</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Form Validations</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end pageheader -->
+            <!-- ============================================================== -->
+            {{>_msg}}
+            <div class="row">
+                <!-- ============================================================== -->
+                <!-- basic form -->
+                <!-- ============================================================== -->
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="card">
+                        <h5 class="card-header">Cadastro Cliente</h5>
+                        <div class="card-body">
+                            <!-- ============================================================== -->
+                            <!-- inicio form -->
+                            <!-- ============================================================== -->
+                            <form action="/cliente/cadastrar" method="POST" id="basicform" data-parsley-validate="">
+
+                                <div class="form-group">
+                                    <label for="nome">Nome Cliente</label>
+                                    <input id="nome" type="text" name="nome" data-parsley-trigger="change" required=""
+                                        placeholder="Digite o nome do cliente" autocomplete="off" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="telefone">Telefone para contato</label>
+                                    <input id="telefone" name="telefone" type="number"
+                                        placeholder="Digite o numero de telefone" required="" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bairro">Bairro</label>
+                                    <input id="bairro" name="bairro" data-parsley-equalto="#inputendereco" type="text"
+                                        required="" placeholder="Digite o nome do bairro" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="rua">Nome da rua</label>
+                                    <input id="rua" name="rua" data-parsley-equalto="#inputendereco" type="text"
+                                        required="" placeholder="Digite o nome da rua" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="residencia">Numero da Residência</label>
+                                    <input id="residencia" name="residencia" data-parsley-equalto="#inputendereco"
+                                        type="text" required="" placeholder="Digite o numero da residência"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="complemento_ref">Complemento - Ref</label>
+                                    <textarea name="complemento_ref" id="complemento_ref" cols="30" rows="10"
+                                        class="form-control"
+                                        placeholder="Digite o complemento ou referência"></textarea>
+                                </div>                            
+                                <div class="form-group ml-5">
+                                    <button class="btn btn-success ml-5">Enviar</button>
+                                    <button type="reset" class="btn btn-danger ml-5">Resetar</button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- end basic form -->
+                <!-- ============================================================== -->

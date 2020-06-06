@@ -35,6 +35,7 @@
             <!-- ============================================================== -->
             {{>_msg}}
             <div class="row">
+
                 <!-- ============================================================== -->
                 <!-- basic form -->
                 <!-- ============================================================== -->
@@ -42,36 +43,48 @@
                     <div class="card">
                         <h5 class="card-header">Cadastro Cliente</h5>
                         <div class="card-body">
+                            <div class="form-group">
+                                <label for="opc03">Clientes Cadastrados</label>
+                                <select name="opc03" id="opc03" class="form-control">
+                                    <option value="null">Selecione</option>
+                                    {{#each clientes}}
+                                    <option value="{{dataValues.nome}}"> <strong>NOME:</strong>{{dataValues.nome}}
+                                        <strong>BAIRRO:</strong>{{dataValues.bairro}}
+                                        <strong>RUA:</strong>{{dataValues.rua}}
+                                        <strong>NUMERO:</strong>{{dataValues.residencia}} <strong>COMPLEMENTO:
+                                        </strong>{{dataValues.complemento_ref}} </option>
+                                    {{/each}}
+                                </select>
+                            </div>
                             <!-- ============================================================== -->
                             <!-- inicio form -->
                             <!-- ============================================================== -->
-                            <form action="/pedido/env-pedidos" method="POST" id="basicform" data-parsley-validate="">
+                            <form action="/cliente/cadastrar" method="POST" id="basicform" data-parsley-validate="">
 
                                 <div class="form-group">
                                     <label for="nome">Nome Cliente</label>
-                                    <input id="nome" type="text" name="nome" data-parsley-trigger="change" required=""
+                                    <input id="nome" type="text" name="nome" data-parsley-trigger="change"
                                         placeholder="Digite o nome do cliente" autocomplete="off" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="telefone">Telefone para contato</label>
                                     <input id="telefone" name="telefone" type="number"
-                                        placeholder="Digite o numero de telefone" required="" class="form-control">
+                                        placeholder="Digite o numero de telefone" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="bairro">Bairro</label>
                                     <input id="bairro" name="bairro" data-parsley-equalto="#inputendereco" type="text"
-                                        required="" placeholder="Digite o nome do bairro" class="form-control">
+                                        placeholder="Digite o nome do bairro" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="rua">Nome da rua</label>
                                     <input id="rua" name="rua" data-parsley-equalto="#inputendereco" type="text"
-                                        required="" placeholder="Digite o nome da rua" class="form-control">
+                                        placeholder="Digite o nome da rua" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="residencia">Numero da Residência</label>
-                                    <input id="residencia" name="residencia"
-                                        data-parsley-equalto="#inputendereco" type="text" required=""
-                                        placeholder="Digite o numero da residência" class="form-control">
+                                    <input id="residencia" name="residencia" data-parsley-equalto="#inputendereco"
+                                        type="text" placeholder="Digite o numero da residência" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="complemento_ref">Complemento - Ref</label>
@@ -79,11 +92,28 @@
                                         class="form-control"
                                         placeholder="Digite o complemento ou referência"></textarea>
                                 </div>
+                                 <div class="row pt-2 pt-sm-5 mt-1">
+                                <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
+                                    <label class="be-checkbox custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input"><span
+                                            class="custom-control-label">Remember me</span>
+                                    </label>
+                                </div>
+                                <div class="col-sm-6 pl-0">
+                                    <p class="text-right">
+                                        <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                                        <button class="btn btn-space btn-secondary">Cancel</button>
+                                    </p>
+                                </div>
+                            </div>
+                            </form>
+
+                            <form action="/pedido/env-pedidos" method="POST" id="basicform" data-parsley-validate="">
                                 <div class="form-group">
                                     <label for="valorEntrega">Valor Entrega</label>
-                                    <input id="valorEntrega" name="valorEntrega"
-                                        data-parsley-equalto="#inputendereco" type="text" required=""
-                                        placeholder="Digite o valor da entrega" class="form-control">
+                                    <input id="valorEntrega" name="valorEntrega" data-parsley-equalto="#inputendereco"
+                                        type="text" required="" placeholder="Digite o valor da entrega"
+                                        class="form-control">
                                 </div>
                         </div>
                     </div>
@@ -111,7 +141,8 @@
                                     <option value="Combo Medio + Mantiqueira">Combo Medio (3 - 5) + Mantiqueira</option>
                                     <option value="Combo Medio + Cerveja">Combo Medio (3 - 5) + Cerveja</option>
                                     <option value="Combo Grande">Combo Grande (4 - 6)</option>
-                                    <option value="Combo Grande + Mantiqueira">Combo Grande (4 - 6) + Mantiqueira</option>
+                                    <option value="Combo Grande + Mantiqueira">Combo Grande (4 - 6) + Mantiqueira
+                                    </option>
                                     <option value="Combo Grande + Cerveja">Combo Grande (4 - 6) + Cerveja</option>
                                 </select>
                             </div>
@@ -120,7 +151,7 @@
 
                                 <select name="opc01" id="opc01" class="form-control">
                                     <option value="null">Selecione</option>
-                                    {{#each aperitivos}}
+                                    {{#each opc}}
                                     <option value="{{dataValues.valor}}">{{dataValues.nome}} = {{dataValues.valor}}
                                     </option>
                                     {{/each}}
@@ -131,28 +162,30 @@
                                 <label for="opc02">02- Opção</label>
                                 <select name="opc02" id="opc02" class="form-control">
                                     <option value="null">Selecione</option>
-                                    {{#each aperitivos}}
+                                    {{#each opc}}
                                     <option value="{{dataValues.valor}}">{{dataValues.nome}}</option>
                                     {{/each}}
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="observacao">Observação dos Produtos</label>
+                                <label for="observacao">Observação Petisco</label>
                                 <textarea name="observacao" id="observacao" cols="30" rows="10" class="form-control"
                                     placeholder="Digite alguma Observação"></textarea>
                             </div>
+                            <hr>
                             <div class="form-group">
                                 <label for="opc03">Hot-Dog</label>
 
                                 <select name="opc03" id="opc03" class="form-control">
                                     <option value="null">Selecione</option>
-                                    {{#each aperitivos}}
-                                    <option value="{{dataValues.valor}}">{{dataValues.nome}}</option>
+                                    {{#each hotdog}}
+                                    <option value="{{dataValues.valorVendido}}">{{dataValues.nome}}
+                                        R${{dataValues.valorVendido}}</option>
                                     {{/each}}
                                 </select>
                             </div>
-                             <div class="form-group">
-                                <label for="observacao">Observação dos Produtos</label>
+                            <div class="form-group">
+                                <label for="observacao">Observação Hot-Dog</label>
                                 <input type="text" name="observacao" id="observacao" class="form-control"
                                     placeholder="Digite alguma Observação">
                             </div>
@@ -162,7 +195,9 @@
                                 <select name="bebidas" id="bebidas" class="form-control">
                                     <option value="null">Selecione</option>
                                     {{#each bebidas}}
-                                    <option value="{{dataValues.valorVenda}}">{{dataValues.nome}} {{dataValues.quantidade}}  {{dataValues.desc}} {{dataValues.valorVenda}}R$</option>
+                                    <option value="{{dataValues.valorVenda}}">{{dataValues.nome}}
+                                        {{dataValues.quantidade}} {{dataValues.desc}} {{dataValues.valorVenda}}R$
+                                    </option>
                                     {{/each}}
                                 </select>
                             </div>
@@ -170,7 +205,24 @@
                                 <label for="qtdBebidas">Quantidade Bebidas</label>
                                 <input type="number" name="qtdBebidas" class="form-control">
                             </div>
-                            <hr>                            
+                            <hr>
+                            <div class="form-group">
+                                <label for="bebidas">Bebidas</label>
+                                <select name="bebidas" id="bebidas" class="form-control">
+                                    <option value="null">Selecione</option>
+                                    {{#each bebidas}}
+                                    <option value="{{dataValues.valorVenda}}">{{dataValues.nome}}
+                                        {{dataValues.quantidade}} {{dataValues.desc}} {{dataValues.valorVenda}}R$
+                                    </option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="qtdBebidas">Quantidade Bebidas</label>
+                                <input type="number" name="qtdBebidas" class="form-control">
+                            </div>
+                            <hr>
                             <div class="row pt-2 pt-sm-5 mt-1">
                                 <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
                                     <label class="be-checkbox custom-control custom-checkbox">

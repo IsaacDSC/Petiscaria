@@ -5,13 +5,21 @@ const router = express.Router()
 const Aperitivos = require('../models/Aperitivos')
 const Pedidos = require('../models/Pedidos')
 const Bebidas = require('../models/Bebidas')
-
+const OpcaoAperitivo = require('../models/OpcaoAPeritivo')
+const HotDog = require('../models/HotDog')
+const Clientes = require('../models/Clientes')
 
 router.get('/', (req, res) => {
     Aperitivos.findAll().then((aperitivos) => {
         Bebidas.findAll().then((bebidas) => {
+            OpcaoAperitivo.findAll().then((opc) => {
+                HotDog.findAll().then((hotdog) => {
+                    Clientes.findAll().then((clientes) => {
 
-            res.render('pedido/montarPedido', { aperitivos: aperitivos, bebidas: bebidas })
+                        res.render('pedido/montarPedido', { aperitivos: aperitivos, bebidas: bebidas, opc: opc, hotdog: hotdog, clientes: clientes })
+                    })
+                })
+            })
         })
     })
 
@@ -19,16 +27,11 @@ router.get('/', (req, res) => {
 
 router.post('/env-pedidos', (req, res) => {
     Pedidos.create({
-        nome: req.body.nome,
-        telefone: req.body.telefone,
-        bairro: req.body.bairro,
-        rua: req.body.rua,
-        residencia: req.body.residencia,
-        complemento_ref: req.body.complemento_ref,
+        valorEntrega: req.body.valorEntrega,
         tamanhoPetisco: req.body.tamanhoPetisco,
         opc01: req.body.opc01,
         opc02: req.body.opc02,
-        opc03: req.body.opc03,
+        obsPetisco: req.body.observacao,
         bebidas: req.body.bebidas,
         qtdBebidas: req.body.qtdBebidas,
         observacao: req.body.observacao,

@@ -1,28 +1,8 @@
 const db = require('../models/db')
 
 const Pedidos = db.sequelize.define('pedido', {
-    nome: {
-        type: db.Sequelize.STRING(60),
-        require: true
-    },
-    telefone: {
-        type: db.Sequelize.INTEGER,
-        require: true
-    },
-    bairro: {
-        type: db.Sequelize.STRING(220),
-        require: true
-    },
-    rua: {
-        type: db.Sequelize.STRING(220),
-        require: true,
-    },
-    residencia: {
-        type: db.Sequelize.INTEGER,
-        require: true
-    },
-    complemento_ref: {
-        type: db.Sequelize.TEXT
+    valorEntrega: {
+        type: db.Sequelize.FLOAT
     },
     tamanhoPetisco: {
         type: db.Sequelize.STRING,
@@ -36,15 +16,28 @@ const Pedidos = db.sequelize.define('pedido', {
         type: db.Sequelize.STRING,
         require: true
     },
-    opc03: {
+    obsPetisco: {
+        type: db.Sequelize.TEXT
+    },
+    hotdog: {
+        type: db.Sequelize.STRING,
+    },
+    obsHotDog: {
+        type: db.Sequelize.TEXT
+    },
+    one_bebidas: {
         type: db.Sequelize.STRING,
         require: true
     },
-    bebidas: {
+    tow_bebidas: {
         type: db.Sequelize.STRING,
         require: true
     },
-    qtdBebidas: {
+    one_qtdBebidas: {
+        type: db.Sequelize.INTEGER,
+        require: true
+    },
+    tow_qtdBebidas: {
         type: db.Sequelize.INTEGER,
         require: true
     },
