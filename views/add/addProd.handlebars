@@ -36,32 +36,43 @@
             <!-- ============================================================== -->
             <!-- basic form -->
             <!-- ============================================================== -->
-            <form action="/addProd/addProdEstoque" method="post">
+            <form action="/estoque/cadastrar" method="post">
                 <div class="row">
-
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             <h5 class="card-header">Cadastro do Produto Estoque</h5>
                             <div class="card-body">
-                                <form action="#" id="basicform" data-parsley-validate="">
-                                    <div class="form-group">
-                                        <label for="nameProd">Nome Produto</label>
-                                        <input id="nameProd" type="text" name="nameProd" data-parsley-trigger="change"
-                                            required="" placeholder="Digite o nome do produto" autocomplete="off"
-                                            class="form-control">
+                                <div class="form-group">
+                                    <label for="nameProd">Nome Produto</label>
+                                    <input id="nameProd" type="text" name="nameProd" data-parsley-trigger="change"
+                                        required="" placeholder="Digite o nome do produto" autocomplete="off"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="marcaProd">Marca do Produto</label>
+                                    <input id="marcaProd" type="text" name="marcaProd" data-parsley-trigger="change"
+                                        required="" placeholder="Digite a marca do produto" autocomplete="off"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="desc">Descrição do Produto</label>
+                                    <input id="desc" type="text" name="desc" data-parsley-trigger="change" required=""
+                                        placeholder="Digite aqui a descrição do produto" autocomplete="off"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dtValidProd">Data de Validade</label>
+                                    <input id="dtValidProd" type="date" name="dtValidProd" required=""
+                                        class="form-control">
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-6">
+                                        <label for="quantidadeProd ">Quantidade Produto</label>
+                                        <input id="quantidadeProd" name="quantidadeProd"
+                                            data-parsley-equalto="#inputendereco" type="number" required=""
+                                            placeholder="Digite a quantidade do produto" class="form-control">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="marcaProd">Marca do Produto</label>
-                                        <input id="marcaProd" type="text" name="marcaProd" data-parsley-trigger="change"
-                                            required="" placeholder="Digite a marca do produto" autocomplete="off"
-                                            class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="dtValidProd">Data de Validade</label>
-                                        <input id="dtValidProd" type="date" name="dtValidProd" required=""
-                                            class="form-control">
-                                    </div>
-                                    <div class="form-group">
+                                    <div class="form-group col-6">
                                         <label for="uniMedidaProd ">Unidade de medida do Produto</label>
                                         <select name="uniMedidaProd" id="uniMedidaProd" class="form-control" required>
                                             <option value="null">selecione</option>
@@ -72,109 +83,36 @@
                                             <option value="centimetro">Centimetro</option>
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="quantidadeProd ">Quantidade Produto</label>
-                                        <input id="quantidadeProd" name="quantidadeProd"
-                                            data-parsley-equalto="#inputendereco" type="number" required=""
-                                            placeholder="Digite a quantidade do produto" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="valorProd">Valor Produto R$</label>
+                                    <input id="valorProd" name="valorProd" data-parsley-equalto="#inputendereco"
+                                        type="text" required="" placeholder="Digite o valor do produto com virgula"
+                                        class="form-control">
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
+                                        <label class="be-checkbox custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input"><span
+                                                class="custom-control-label">Remember me</span>
+                                        </label>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="gastoProdPedido">Uso, gasto em cada Pedido</label>
-                                        <input id="gastoProdPedido" name="gastoProdPedido"
-                                            data-parsley-equalto="#inputendereco" type="text" required=""
-                                            placeholder="Digite o uso médio de gasto deste produto"
-                                            class="form-control">
+                                    <div class="col-sm-6 pl-0">
+                                        <p class="text-right">
+                                            <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                                            <button class="btn btn-space btn-secondary">Cancel</button>
+                                        </p>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="valorProd">Valor Produto R$</label>
-                                        <input id="valorProd" name="valorProd" data-parsley-equalto="#inputendereco"
-                                            type="text" required="" placeholder="Digite o valor do produto com virgula"
-                                            class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="rendimentoProd">Rendimento Médio do Produto</label>
-                                        <input id="rendimentoProd" name="rendimentoProd"
-                                            data-parsley-equalto="#inputendereco" type="date" required=""
-                                            placeholder="Digite o rendimento médio do produto" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="rendimentoProd1">Rendimento Médio do Produto</label>
-                                        <input id="rendimentoProd1" name="rendimentoProd1"
-                                            data-parsley-equalto="#inputendereco" type="number" required=""
-                                            placeholder="Digite o rendimento médio do produto" class="form-control">
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
-                                            <label class="be-checkbox custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"><span
-                                                    class="custom-control-label">Remember me</span>
-                                            </label>
-                                        </div>
-                                        <div class="col-sm-6 pl-0">
-                                            <p class="text-right">
-                                                <button type="submit" class="btn btn-space btn-primary">Submit</button>
-                                                <button class="btn btn-space btn-secondary">Cancel</button>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- ============================================================== -->
-                    <!-- end basic form -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- horizontal form -->
-                    <!-- ============================================================== -->
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                        <form action="/addProd/addAperitivo" method="post">
-                            <div class="card">
-                                <h5 class="card-header">Cadastro do Produto Aperitivo</h5>
-                                <div class="card-body">
-                                    <form id="form" data-parsley-validate="" novalidate="">
-                                        <div class="form-group">
-                                            <label for="codAperitivo">Código do Aperitivo</label>
-                                            <input type="text" name="codAperitivo" id="codAperitivo"
-                                                class="form-control" placeholder="Digite o código do Aperitivo">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nomeAperitivo">Nome do Aperitivo</label>
-                                            <input type="text" name="nomeAperitivo" id="nomeAperitivo"
-                                                class="form-control" placeholder="Digite o nome do Aperitivo">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="descAperitivo">Descrição do Aperitivo</label>
-                                            <textarea name="descAperitivo" id="descAperitivo" cols="30" rows="10"
-                                                class="form-control"
-                                                placeholder="Digite a descrição deste aperitivo"></textarea>
-                                        </div>  
-                                        <div class="form-group">
-                                            <label for="valorAperitivo">Valor</label>
-                                            <input type="text" name="valorAperitivo" id="valorAperitivo"
-                                                class="form-control" placeholder="Digite o valor do Aperitivo">
-                                        </div>                                      
-                                        <hr>
-                                        <div class="row pt-2 pt-sm-5 mt-1">
-                                            <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
-                                                <label class="be-checkbox custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"><span
-                                                        class="custom-control-label">Remember me</span>
-                                                </label>
-                                            </div>
-                                            <div class="col-sm-6 pl-0">
-                                                <p class="text-right">
-                                                    <button type="submit"
-                                                        class="btn btn-space btn-primary">Submit</button>
-                                                    <button class="btn btn-space btn-secondary">Cancel</button>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                    </div>
-                    <!-- ============================================================== -->
-                    <!-- end horizontal form -->
-                    <!-- ============================================================== -->
                 </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- end basic form -->
+<!-- ============================================================== -->

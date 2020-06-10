@@ -3,4 +3,124 @@
     {{>_navDashboard}}
     <!-- Fim nav partials -->
     {{>_sidebarDashboard}}
-    
+    <!-- ============================================================== -->
+    <!-- wrapper  -->
+    <!-- ============================================================== -->
+    <div class="dashboard-wrapper">
+        <div class="container-fluid  dashboard-content">
+            <!-- ============================================================== -->
+            <!-- pageheader -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="page-header">
+                        <h2 class="pageheader-title">Formulário Editar produtos</h2>
+                        <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit
+                            amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                        <div class="page-breadcrumb">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Forms</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Form Validations</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end pageheader -->
+            <!-- ============================================================== -->
+            {{>_msg}}
+            <!-- ============================================================== -->
+            <!-- basic form -->
+            <!-- ============================================================== -->
+
+            <form action="/estoque/editado" method="post">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-header col-12">
+                                <h5 class="text-center">Cadastro do Produto Estoque</h5>
+                                <a href="/estoque/produto"><button class="btn btn-outline-success">Cadastrar</button></a>
+                            </div>
+                            <div class="card-body">
+                                <input type="hidden" value="{{produto.dataValues.id}}">
+                                <div class="form-group">
+                                    <label for="nameProd">Nome Produto</label>
+                                    <input id="nameProd" type="text" name="nameProd" data-parsley-trigger="change"
+                                        required="" placeholder="Digite o nome do produto" autocomplete="off"
+                                        class="form-control" value="{{produto.dataValues.nome}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="marcaProd">Marca do Produto</label>
+                                    <input id="marcaProd" type="text" name="marcaProd" data-parsley-trigger="change"
+                                        required="" placeholder="Digite a marca do produto" autocomplete="off"
+                                        class="form-control" value="{{produto.dataValues.marca}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="desc">Descrição do Produto</label>
+                                    <input id="desc" type="text" name="desc" data-parsley-trigger="change" required=""
+                                        placeholder="Digite aqui a descrição do produto" autocomplete="off"
+                                        class="form-control" value="{{produto.dataValues.desc}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dtValidProd">Data de Validade</label>
+                                    <input id="dtValidProd" type="date" name="dtValidProd" required=""
+                                        class="form-control" value="{{produto.dataValues.validade}}">
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-6">
+                                        <label for="quantidadeProd ">Quantidade Produto</label>
+                                        <input id="quantidadeProd" name="quantidadeProd"
+                                            data-parsley-equalto="#inputendereco" type="number" required=""
+                                            placeholder="Digite a quantidade do produto" class="form-control"
+                                            value="{{produto.dataValues.quantidade}}">
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="uniMedidaProd ">Unidade de medida do Produto</label>
+                                        <select name="uniMedidaProd" id="uniMedidaProd" class="form-control" required>
+                                            <option value="{{produto.dataValues.uniMedida}}" checked>
+                                                {{produto.dataValues.uniMedida}}</option>
+                                            <option value="kg">Kg</option>
+                                            <option value="litro">Litro</option>
+                                            <option value="unidade">Unidade</option>
+                                            <option value="metro">Metro</option>
+                                            <option value="centimetro">Centimetro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="valorProd">Valor Produto R$</label>
+                                    <input id="valorProd" name="valorProd" data-parsley-equalto="#inputendereco"
+                                        type="text" required="" placeholder="Digite o valor do produto com virgula"
+                                        class="form-control" value="{{produto.dataValues.valor}}">
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
+                                        <label class="be-checkbox custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input"><span
+                                                class="custom-control-label">Remember me</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-6 pl-0">
+                                        <p class="text-right">
+                                            <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                                            <button class="btn btn-space btn-secondary">Cancel</button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- end basic form -->
+<!-- ============================================================== -->

@@ -2,52 +2,16 @@ const express = require('express')
 const router = express.Router()
 
 //adionando models
-const EstoqueProduto = require('../models/EstoqueProduto')
 const Pedidos = require('../models/Pedidos')
 const Bebidas = require('../models/Bebidas')
 const OpcaoAperitvo = require('../models/OpcaoAPeritivo')
 
-router.get('/produto', (req, res) => {
-    res.render('add/addProd')
-})
+
 
 router.get('/bebidas', (req, res) => {
     res.render('add/addBebidas')
 })
 
-router.post('/ProdEstoque', (req, res) => {
-    EstoqueProduto.create({
-        nome: req.body.nameProd,
-        marca: req.body.marcaProd,
-        validade: req.body.dtValidProd,
-        uniMedida: req.body.uniMedidaProd,
-        quantidade: req.body.quantidadeProd,
-        gastoemPedido: req.body.gastoProdPedido,
-        valor: req.body.valorProd,
-        rendimento: req.body.rendimentoProd,
-        rendimento1: req.body.rendimentoProd1
-    }).then(() => {
-        //res.send('Enviado com sucesso')
-        req.flash('success_msg', 'Produto Adionado com sucesso!')
-        res.redirect('/addProd')
-    }).catch((err) => {
-        //res.send('error: ' + err)
-        req.flash('error_msg', 'Erro ao Enviar formulário, por favor complete os campos corretamente')
-        res.redirect('/add/produto')
-    })
-})
-
-router.get('/views-produtos', (req, res) => {
-    EstoqueProduto.findAll().then((produtos) => {
-        res.render('vis-prod/vis-estoque', { produtos: produtos })
-    })
-})
-
-router.get('/edit-produtos', (req, res) => {
-    EstoqueProduto.findOne({ id: req.body.id }).then((produto) => {
-        res.render('edit-prod/editProd')
-    })
-})
 
 router.post('/pedidos', (req, res) => {
     Pedidos.findOne().then((pedidos) => {

@@ -30,42 +30,52 @@
             <!-- ============================================================== -->
             <!-- end pageheader -->
             <!-- ============================================================== -->
-
+                {{>_msg}}
             <div class="row">
                 <!-- ============================================================== -->
                 <!-- basic table -->
                 <!-- ============================================================== -->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
-                        <h5 class="card-header">Aperitivos Cadastrados</h5>
+                        <div class="card-header">
+                            <h5>Estoque</h5>
+                            <a href="/estoque/produto"><button class="btn btn-outline-success">Cadastrar</button></a>                            
+                        </div>
                         <div class="card-body">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Id</th>
-                                        <th scope="col">nome</th>
-                                        <th scope="col">validade</th>
-                                        <th scope="col">quantidade</th>
-                                        <th scope="col">valor</th>
-                                        <th scope="col">Editar - Deletar</th>  
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {{#each produtos}}
-                                    <tr>
-                                        <th scope="row">{{dataValues.id}}</th>
-                                        <td>{{dataValues.nome}}</td>
-                                        <td>{{dataValues.validade}}</td>
-                                        <td>{{dataValues.quantidade}}</td>
-                                        <td>{{dataValues.valor}}</td>
-                                        <td>
-                                            <a href=""><Button class="btn btn-primary">Editar</Button></a>
-                                            <a href=""><Button class="btn btn-danger">Deletar</Button></a>
-                                        </td>
-                                    </tr>
-                                    {{/each}}
-                                </tbody>
-                            </table>
+                            {{#each produtos}}
+                            <form action="/estoque/edit" method="post">                 
+                            <div class="row">
+                                <div class="group col-12">
+                                    <p><strong>Nome: </strong>{{dataValues.nome}}</p>
+                                </div>
+                                <div class="group col-12">
+                                    <p> <strong>Marca: </strong>{{dataValues.marca}} </p>
+                                </div>                                
+                            </div>
+                            <div class="row">
+                                <div class="group col-12">
+                                    <p><strong>Descrição: </strong> {{dataValues.desc}}</p>
+                                </div>
+                                 <div class="group col-12">
+                                    <p><strong>Validade: </strong>{{dataValues.validade}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="group col-12">
+                                    <p><strong>Quantidade: </strong>{{dataValues.quantidade}}{{dataValues.uniMedida}}
+                                    </p>
+                                </div>                               
+                                <div class="group col-12">
+                                    <p><strong>Valor: </strong>{{dataValues.valor}}
+                                    </p>
+                                </div>
+                                <a class="col-12 mt-2"><button class="btn btn-outline-info col-12">Editar</button></a>
+                                </form>       
+                                <a href="/estoque/delete" class="col-12 mt-2"><button class="btn btn-outline-danger col-12">Deletar</button></a>
+                            </div>
+                            <hr>
+                            {{/each}}
                         </div>
                     </div>
                 </div>
