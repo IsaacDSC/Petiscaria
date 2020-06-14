@@ -36,39 +36,50 @@
             <!-- ============================================================== -->
             <!-- basic form -->
             <!-- ============================================================== -->
-
+            {{#each produto}}
             <form action="/estoque/editado" method="post">
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             <div class="card-header col-12">
                                 <h5 class="text-center">Cadastro do Produto Estoque</h5>
-                                <a href="/estoque/produto"><button class="btn btn-outline-success">Cadastrar</button></a>
+                                <a href="/estoque/produto"><button
+                                        class="btn btn-outline-success">Cadastrar</button></a>
                             </div>
                             <div class="card-body">
-                                <input type="hidden" value="{{produto.dataValues.id}}">
-                                <div class="form-group">
-                                    <label for="nameProd">Nome Produto</label>
-                                    <input id="nameProd" type="text" name="nameProd" data-parsley-trigger="change"
-                                        required="" placeholder="Digite o nome do produto" autocomplete="off"
-                                        class="form-control" value="{{produto.dataValues.nome}}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="marcaProd">Marca do Produto</label>
-                                    <input id="marcaProd" type="text" name="marcaProd" data-parsley-trigger="change"
-                                        required="" placeholder="Digite a marca do produto" autocomplete="off"
-                                        class="form-control" value="{{produto.dataValues.marca}}">
+                                <input type="hidden" value="{{dataValues.id}}">
+                                <div class="row">
+                                    <div class="form-group col-6">
+                                        <label for="nameProd">Nome Produto</label>
+                                        <input id="nameProd" type="text" name="nameProd" data-parsley-trigger="change"
+                                            required="" placeholder="Digite o nome do produto" autocomplete="off"
+                                            class="form-control" value="{{dataValues.nome}}">
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="marcaProd">Marca do Produto</label>
+                                        <input id="marcaProd" type="text" name="marcaProd" data-parsley-trigger="change"
+                                            required="" placeholder="Digite a marca do produto" autocomplete="off"
+                                            class="form-control" value="{{dataValues.marca}}">
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="desc">Descrição do Produto</label>
                                     <input id="desc" type="text" name="desc" data-parsley-trigger="change" required=""
                                         placeholder="Digite aqui a descrição do produto" autocomplete="off"
-                                        class="form-control" value="{{produto.dataValues.desc}}">
+                                        class="form-control" value="{{dataValues.desc}}">
                                 </div>
-                                <div class="form-group">
-                                    <label for="dtValidProd">Data de Validade</label>
-                                    <input id="dtValidProd" type="date" name="dtValidProd" required=""
-                                        class="form-control" value="{{produto.dataValues.validade}}">
+                                <div class="row">
+                                    <div class="form-group col-6">
+                                        <label for="dtValidProd">Data de Validade</label>
+                                        <input id="dtValidProd" type="date" name="dtValidProd" required=""
+                                            class="form-control" value="{{dataValues.validade}}">
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="valorProd">Valor Produto R$</label>
+                                        <input id="valorProd" name="valorProd" data-parsley-equalto="#inputendereco"
+                                            type="text" required="" placeholder="Digite o valor do produto com virgula"
+                                            class="form-control" value="{{dataValues.valor}}">
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-6">
@@ -76,13 +87,13 @@
                                         <input id="quantidadeProd" name="quantidadeProd"
                                             data-parsley-equalto="#inputendereco" type="number" required=""
                                             placeholder="Digite a quantidade do produto" class="form-control"
-                                            value="{{produto.dataValues.quantidade}}">
+                                            value="{{dataValues.quantidade}}">
                                     </div>
                                     <div class="form-group col-6">
                                         <label for="uniMedidaProd ">Unidade de medida do Produto</label>
                                         <select name="uniMedidaProd" id="uniMedidaProd" class="form-control" required>
-                                            <option value="{{produto.dataValues.uniMedida}}" checked>
-                                                {{produto.dataValues.uniMedida}}</option>
+                                            <option value="{{dataValues.uniMedida}}" checked>
+                                                {{dataValues.uniMedida}}</option>
                                             <option value="kg">Kg</option>
                                             <option value="litro">Litro</option>
                                             <option value="unidade">Unidade</option>
@@ -90,12 +101,6 @@
                                             <option value="centimetro">Centimetro</option>
                                         </select>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="valorProd">Valor Produto R$</label>
-                                    <input id="valorProd" name="valorProd" data-parsley-equalto="#inputendereco"
-                                        type="text" required="" placeholder="Digite o valor do produto com virgula"
-                                        class="form-control" value="{{produto.dataValues.valor}}">
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
@@ -116,7 +121,7 @@
                     </div>
                 </div>
             </form>
-
+            {{/each}}
         </div>
     </div>
 </div>

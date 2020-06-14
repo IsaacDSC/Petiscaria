@@ -37,33 +37,32 @@
             <!-- horizontal form -->
             <!-- ============================================================== -->
 
-            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                {{#each aperitivos}}
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">                
                 <form action="/aperitivos/edit" method="post">
                     <div class="card">
-                        <input type="hidden" value="{{dataValues.id}}">
+                        <input type="hidden" value="{{aperitivos.dataValues.id}}">
                         <h5 class="card-header">Cadastro do Produto Aperitivo</h5>
                         <div class="card-body">                            
                             <div class="form-group">
                                 <label for="nomeAperitivo">Nome do Aperitivo</label>
                                 <input type="text" name="nomeAperitivo" id="nomeAperitivo" class="form-control"
-                                    placeholder="Digite o nome do Aperitivo" value="{{dataValues.nome}}">
+                                    placeholder="Digite o nome do Aperitivo" value="{{aperitivos.dataValues.nome}}">
                             </div>
                             <div class="form-group">
                                 <label for="descAperitivo">Descrição do Aperitivo</label>
                                 <textarea name="descAperitivo" id="descAperitivo" cols="30" rows="10"
                                     class="form-control"
-                                    placeholder="Digite a descrição deste aperitivo">{{dataValues.descricao}}</textarea>
+                                    placeholder="Digite a descrição deste aperitivo">{{aperitivos.dataValues.descricao}}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="valorAperitivo">Valor</label>
                                 <input type="text" name="valorAperitivo" id="valorAperitivo" class="form-control"
-                                    placeholder="Digite o valor do Aperitivo" value="{{dataValues.valor}}">
+                                    placeholder="Digite o valor do Aperitivo" value="{{aperitivos.dataValues.valor}}">
                             </div>
                             <div class="form-group">
                                 <label for="valorGasto">Valor</label>
                                 <input type="text" name="valorGasto" id="valorGasto" class="form-control"
-                                    placeholder="Digite o valor do Aperitivo" value="{{dataValues.valorGasto}}">
+                                    placeholder="Digite o valor do Aperitivo" value="{{aperitivos.dataValues.valorGasto}}">
                             </div>
                             <hr>
                             <div class="row pt-2 pt-sm-5 mt-1">
@@ -82,7 +81,6 @@
                             </div>
                         </div>
                 </form>
-                {{/each}}
             </div>
         </div>
     </div>

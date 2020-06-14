@@ -37,7 +37,7 @@
             <!-- ============================================================== -->
             <!-- horizontal form -->
             <!-- ============================================================== -->
-            {{#each hotdog}}
+        {{#each hotdog}}
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card">
                     <div class="card-header">
@@ -45,48 +45,51 @@
                         <a href="/hotdog/add"><button class="btn btn-outline-success">Cadastrar</button></a>
                         <a href="/hotdog/views"><button class="btn btn-outline-info">Visualizar</button></a>
                     </div>
-                    <form action="/hotdog/cadastrar" method="post">
-
+                    <form action="/hotdog/CadastrarEdit" method="post">
                         <div class="card-body">
-                            <form id="form" data-parsley-validate="" novalidate="">
-                                <div class="form-group">
+                            <div class="row">
+                                <div class="form-group col-4">
                                     <label for="nome">Nome</label>
                                     <input type="text" name="nome" id="nome" class="form-control"
                                         placeholder="Digite o nome do hot-dog" value="{{dataValues.nome}}">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-8">
                                     <label for="desc">Descrição</label>
                                     <textarea name="desc" id="desc" cols="30" rows="10" class="form-control"
                                         placeholder="Digite a descrição deste hot-dog">{{dataValues.desc}}</textarea>
                                 </div>
-                                <div class="form-group">
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
                                     <label for="valorVendido">Valor de Venda</label>
                                     <input type="text" name="valorVendido" id="valorVendido" class="form-control"
-                                        placeholder="Digite o valor de venda do hot-dog" value="{{dataValues.valorVendido}}">
+                                        placeholder="Digite o valor de venda do hot-dog"
+                                        value="{{dataValues.valorVendido}}">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-6">
                                     <label for="valorGasto">Valor Gasto</label>
                                     <input type="text" name="valorGasto" id="valorGasto" class="form-control"
-                                        placeholder="Digite o valor de gasto do hot-dog" value="{{dataValues.valorGasto}}">
+                                        placeholder="Digite o valor de gasto do hot-dog"
+                                        value="{{dataValues.valorGasto}}">
                                 </div>
-                                <hr>
-                                <div class="row pt-2 pt-sm-5 mt-1">
-                                    <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
-                                        <label class="be-checkbox custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input"><span
-                                                class="custom-control-label">Remember me</span>
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-6 pl-0">
-                                        <p class="text-right">
-                                            <button type="submit" class="btn btn-space btn-primary">Submit</button>
-                                            <button class="btn btn-space btn-secondary">Cancel</button>
-                                        </p>
-                                    </div>
+                            </div>
+                            <hr>
+                            <div class="row pt-2 pt-sm-5 mt-1">
+                                <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
+                                    <label class="be-checkbox custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input"><span
+                                            class="custom-control-label">Remember me</span>
+                                    </label>
                                 </div>
-
-                            </form>
-                        </div>
+                                <div class="col-sm-6 pl-0">
+                                    <p class="text-right">
+                                        <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                                        <button class="btn btn-space btn-secondary">Cancel</button>
+                                    </p>
+                                </div>
+                            </div>
+                    </form>
                 </div>
             </div>
-            {{/each}}
+        {{/each}}
+        </div>

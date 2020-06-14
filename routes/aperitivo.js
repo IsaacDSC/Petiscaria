@@ -52,8 +52,8 @@ router.get('/views', (req, res) => {
     })
 })
 
-router.get('/edit', (req, res) => {
-    Aperitivos.findAll().then((aperitivos) => {
+router.post('/edit', (req, res) => {
+    Aperitivos.findOne({ id: req.body.id }).then((aperitivos) => {
         res.render('edit-prod/editAperitivo', { aperitivos: aperitivos })
     })
 })
@@ -68,10 +68,21 @@ router.post('/cadastrarEdit', (req, res) => {
 
             aperitivos.save().then(() => {
                 req.flash('success_msg', 'Aperitivo Editado com sucesso!')
-                res.redirect('/add/edit-aperitivo')
+                res.redirect('/aperitivos/views')
             }).catch((err) => {
                 res.send('Error:' + err)
             })
+    })
+})
+
+router.post('/delete', (req, res) => {
+    Aperitivos.findOne({ id: req.body.id }).then((aperitivos) => {
+        aperitivos.destroy().then(() => {
+            req.flash('success_msg', 'Aperitivo Editado com sucesso!')
+            res.redirect('/aperitivos/views')
+        }).catch((err) => {
+            res.send('Error:' + err)
+        })
     })
 })
 

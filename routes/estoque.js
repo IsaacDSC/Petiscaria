@@ -34,7 +34,7 @@ router.get('/views', (req, res) => {
 })
 
 router.post('/edit', (req, res) => {
-    Estoque.findOne({ id: req.body.id }).then((produto) => {
+    Estoque.findAll({ id: req.body.id }).then((produto) => {
         res.render('edit-prod/editProd', { produto: produto })
     })
 })

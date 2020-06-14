@@ -38,40 +38,41 @@
                 <!-- ============================================================== -->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
-                        <h5 class="card-header">Aperitivos Cadastrados</h5>
+                        <div class="card-header">
+                            <h5>Estoque</h5>
+                            <a href="/aperitivos/add"><button class="btn btn-outline-success">Cadastrar</button></a>                            
+                        </div>
                         <div class="card-body">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Id</th>
-                                        <th scope="col">código</th>
-                                        <th scope="col">nome</th>
-                                        <th scope="col">valor</th>
-                                        <th scope="col">descrição</th>
-                                        <th scope="col">
-                                            <a href="/aperitivos/edit">
-                                                <button class="btn btn-info">Editar</button>
-                                            </a>
-                                        </th>
-                                        <th>
-
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <form action="" method="post">
-                                        {{#each aperitivos}}
-                                        <tr>
-                                            <th scope="row">{{dataValues.id}}</th>
-                                            <td>{{dataValues.codigo}}</td>
-                                            <td>{{dataValues.nome}}</td>
-                                            <td>{{dataValues.valor}}</td>
-                                            <td>{{dataValues.descricao}}</td>                                            
-                                        </tr>
-                                        {{/each}}
-                                    </form>
-                                </tbody>
-                            </table>
+                            {{#each aperitivos}}
+                            <form action="/aperitivos/edit" method="post">                 
+                            <div class="row">
+                                <div class="group col-12">
+                                    <p><strong>Nome: </strong>{{dataValues.nome}}</p>
+                                </div>
+                                 <div class="group col-12">
+                                    <p><strong>Descrição: </strong> {{dataValues.descricao}}</p>
+                                </div>                              
+                            </div>
+                            <div class="row">
+                                <div class="group col-12">
+                                    <p><strong>Valor Venda: </strong> {{dataValues.valor}}R$</p>
+                                </div>
+                                 <div class="group col-12">
+                                    <p><strong>Valor Gasto: </strong>{{dataValues.valorGasto}}R$
+                                    </p>                                   
+                                </div>
+                                <div class="group col-12">
+                                     <p><strong>Valor Locro: </strong>{{dataValues}}R$
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <a class="col-12 mt-2"><button class="btn btn-outline-info col-12">Editar</button></a>
+                                </form>       
+                                <a href="/apertivos/delete" class="col-12 mt-2"><button class="btn btn-outline-danger col-12">Deletar</button></a>
+                            </div>
+                            <hr>
+                            {{/each}}
                         </div>
                     </div>
                 </div>

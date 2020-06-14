@@ -30,7 +30,7 @@
             <!-- ============================================================== -->
             <!-- end pageheader -->
             <!-- ============================================================== -->
-                {{>_msg}}
+            {{>_msg}}
             <div class="row">
                 <!-- ============================================================== -->
                 <!-- basic table -->
@@ -39,46 +39,56 @@
                     <div class="card">
                         <div class="card-header">
                             <h5>Estoque</h5>
-                            <a href="/estoque/produto"><button class="btn btn-outline-success">Cadastrar</button></a>                            
+                            <a href="/estoque/produto"><button class="btn btn-outline-success">Cadastrar</button></a>
                         </div>
                         <div class="card-body">
                             {{#each produtos}}
-                            <form action="/estoque/edit" method="post">                 
+                            <form action="/estoque/edit" method="post">
+                                <div class="row">
+                                    <div class="group col-12">
+                                        <p><strong>Nome: </strong>{{dataValues.nome}}</p>
+                                    </div>
+                                    <div class="group col-12">
+                                        <p> <strong>Marca: </strong>{{dataValues.marca}} </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="group col-12">
+                                        <p><strong>Descrição: </strong> {{dataValues.desc}}</p>
+                                    </div>
+                                    <div class="group col-12">
+                                        <p><strong>Validade: </strong>{{dataValues.validade}}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="group col-12">
+                                        <p><strong>Quantidade:
+                                            </strong>{{dataValues.quantidade}}{{dataValues.uniMedida}}
+                                        </p>
+                                    </div>
+                                    <div class="group col-12">
+                                        <p><strong>Valor: </strong>{{dataValues.valor}}
+                                        </p>
+                                    </div>
+                                    <a class="col-12">
+                                        <button class="btn btn-outline-info col-12">Editar</button>
+                                    </a>
+                            </form>
+                            <form action="/estoque/delete" method="post">
                             <div class="row">
-                                <div class="group col-12">
-                                    <p><strong>Nome: </strong>{{dataValues.nome}}</p>
-                                </div>
-                                <div class="group col-12">
-                                    <p> <strong>Marca: </strong>{{dataValues.marca}} </p>
-                                </div>                                
+                                    <a class="col-12 mt-2">
+                                        <button class="btn btn-outline-danger">Deletar</button>
+                                    </a>
+
                             </div>
-                            <div class="row">
-                                <div class="group col-12">
-                                    <p><strong>Descrição: </strong> {{dataValues.desc}}</p>
-                                </div>
-                                 <div class="group col-12">
-                                    <p><strong>Validade: </strong>{{dataValues.validade}}
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="group col-12">
-                                    <p><strong>Quantidade: </strong>{{dataValues.quantidade}}{{dataValues.uniMedida}}
-                                    </p>
-                                </div>                               
-                                <div class="group col-12">
-                                    <p><strong>Valor: </strong>{{dataValues.valor}}
-                                    </p>
-                                </div>
-                                <a class="col-12 mt-2"><button class="btn btn-outline-info col-12">Editar</button></a>
-                                </form>       
-                                <a href="/estoque/delete" class="col-12 mt-2"><button class="btn btn-outline-danger col-12">Deletar</button></a>
-                            </div>
-                            <hr>
-                            {{/each}}
+                            </form>
                         </div>
+                        <hr>
+                        {{/each}}
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- end basic table -->
-                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- end basic table -->
+            <!-- ============================================================== -->
